@@ -13,14 +13,17 @@ TIMEAUTH= #segundos para expirar token
 apiEnv= #mudar para "production" caso faça o deploy
 ```
 
-#Você poode utilizar o site render para criar um banco de dados gratuito -> https://render.com/
+### Você poode utilizar o site render para criar um banco de dados gratuito -> https://render.com/
 
-#Utilize o comando npm i (necessita ter o node.js instalado -> https://nodejs.org/en/download )
+### Utilize o comando "npm i" para rodar o projeto (necessita ter o node.js instalado -> https://nodejs.org/en/download )
+``` npm i ``` 
 
-#Após utilize o comando "npm run migration:run" para rodar a migration e criar o banco de dados, ele irá ser criado no schema public.
+### Após utilize o comando "npm run migration:run" para rodar a migration e criar o banco de dados, ele irá ser criado no schema public.
+``` npm run migration:run ``` 
 
-#O próximo passo é utilizar o comando "npm run dev" para rodar a aplicação e ela estará pronta para ser usada.
 
+### O próximo passo é utilizar o comando "npm run dev" para rodar a aplicação e ela estará pronta para ser usada.
+``` npm run dev ``` 
 
 # FrontEnd -> https://github.com/AdrianoCoutinho/tasks-frontent
 
