@@ -1,6 +1,6 @@
 --- PARA RODAR O PROJETO ---
 
-#Alterar o .env.example para .env e colocar os dados necessários
+# Alterar o .env.example para .env e colocar os dados necessários
 
 ```
 PORT= #porta para rodar aplicação
@@ -20,4 +20,7 @@ apiEnv= #mudar para "production" caso faça o deploy
 #Após utilize o comando "npm run migration:run" para rodar a migration e criar o banco de dados, ele irá ser criado no schema public.
 
 #O próximo passo é utilizar o comando "npm run dev" para rodar a aplicação e ela estará pronta para ser usada.
+
+
+# FrontEnd -> https://github.com/AdrianoCoutinho/tasks-frontent
 
