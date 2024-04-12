@@ -2,14 +2,16 @@
 
 #Alterar o .env.example para .env e colocar os dados necessários
 
-#PORT= #porta para rodar aplicação
-#DB_USER= #usuario do banco de dados
-#DB_PASS= #senha do banco de dados
-#DB_HOST= #host do banco de dados
-#DB_NAME= #nome do banco de dados
-#JWT_SECRET= #senha secreta para o token
-#TIMEAUTH= #segundos para expirar token
-#apiEnv= #mudar para "production" caso faça o deploy
+```
+PORT= #porta para rodar aplicação
+DB_USER= #usuario do banco de dados
+DB_PASS= #senha do banco de dados
+DB_HOST= #host do banco de dados
+DB_NAME= #nome do banco de dados
+JWT_SECRET= #senha secreta para o token
+TIMEAUTH= #segundos para expirar token
+apiEnv= #mudar para "production" caso faça o deploy
+```
 
 #Você poode utilizar o site render para criar um banco de dados gratuito -> https://render.com/
 
