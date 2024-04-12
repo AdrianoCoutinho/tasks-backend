@@ -3,6 +3,11 @@ import { Task } from "../../../models/task.model";
 import { TaskEntity } from "../../../shared/database/entities/task.entity";
 import { UserRepository } from "../../user/database/user.repository";
 
+interface TaskParams {
+  idTask: string;
+  title?: string;
+  description?: string;
+}
 export class TaskRepository {
   private repository = TypeormConnection.connection.getRepository(TaskEntity);
 
@@ -27,6 +32,10 @@ export class TaskRepository {
   }
 
   public async get(id: string) {
+    if (!id) {
+      return null;
+    }
+
     const result = await this.repository.findOne({
       where: {
         id,
@@ -41,12 +50,49 @@ export class TaskRepository {
     return TaskRepository.mapEntityToModel(result);
   }
 
+  public async updateTask(taskData: TaskParams) {
+    if (!taskData.idTask) {
+      return {
+        ok: false,
+        code: 404,
+        message: "Tarefa não encontrada",
+        data: null,
+      };
+    }
+
+    const task = await this.repository.findOne({
+      where: {
+        id: taskData.idTask,
+      },
+    });
+
+    if (task === null) {
+      return {
+        ok: false,
+        code: 404,
+        message: "Tarefa não encontrada",
+        data: null,
+      };
+    }
+
+    if (taskData.title) {
+      task.title = taskData.title;
+    }
+
+    if (taskData.description) {
+      task.description = taskData.description;
+    }
+
+    await this.repository.save(task);
+
+    return task;
+  }
+
   public async changeStatus(id: string) {
     const task = await this.repository.findOne({
       where: {
         id,
       },
-      relations: ["user"],
     });
 
     if (task === null) {
@@ -80,7 +126,6 @@ export class TaskRepository {
       where: {
         id,
       },
-      relations: ["user"],
     });
 
     if (task === null) {

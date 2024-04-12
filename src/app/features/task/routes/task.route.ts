@@ -12,5 +12,25 @@ export const taskRoutes = () => {
     new TaskController().create
   );
 
+  router.get("/", [checkLoginValidator], new TaskController().listTasks);
+
+  router.put(
+    "/:idTask",
+    [checkLoginValidator],
+    new TaskController().updateTask
+  );
+
+  router.put(
+    "/status/:idTask",
+    [checkLoginValidator],
+    new TaskController().changeStatus
+  );
+
+  router.delete(
+    "/:idTask",
+    [checkLoginValidator],
+    new TaskController().deleteTask
+  );
+
   return router;
 };
