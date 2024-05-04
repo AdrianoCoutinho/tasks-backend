@@ -25,6 +25,9 @@ export class TaskRepository {
 
   public async list(idUser: string) {
     const result = await this.repository.find({
+      where: {
+        idUser,
+      },
       relations: ["user"],
     });
 
