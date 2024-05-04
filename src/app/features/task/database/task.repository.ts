@@ -23,10 +23,14 @@ export class TaskRepository {
     await this.repository.save(taskEntity);
   }
 
-  public async list() {
+  public async list(idUser: string) {
     const result = await this.repository.find({
       relations: ["user"],
     });
+
+    if (!result) {
+      return null;
+    }
 
     return result.map((item) => TaskRepository.mapEntityToModel(item));
   }
